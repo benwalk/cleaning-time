@@ -9,15 +9,15 @@ resource "aws_lambda_function" "cleaning_time" {
   function_name = "cleaning-time"
 
   # The archive file containing the function
-  # hash is used to determine changes
   filename         = "function.zip"
   source_code_hash = data.archive_file.function_zip.output_base64sha256
 
-  # "main" is the filename within the zip file (main.js) and "handler"
+  # "main" is the filename within the zip file (main.py) and "handler"
   # is the name of the property under which the handler function was
   # exported in that file.
   handler = "main.handler"
   runtime = "python3.8"
+  timeout = 5
 
   role = aws_iam_role.lambda_exec.arn
 }
@@ -44,6 +44,7 @@ resource "aws_iam_role" "lambda_exec" {
 EOF
 }
 
+# AWS managed policy gives CloudWatch logging permissions
 data "aws_iam_policy" "basic_lambda_exec" {
   arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }

@@ -8,8 +8,6 @@ fixture = [
     ("9c4fc12a-dd2f-415a-a112-d7ff5aee0de0", 2.63486499590766)
 ]
 
-# "{\"ids\": [\"e3e70682-c209-4cac-629f-6fbed82c07cd\",\"16a92bf5-0e5d-4372-a801-1d4e2895be65\"]}"
-
 def event(method, body):
     return {
       "httpMethod": method,

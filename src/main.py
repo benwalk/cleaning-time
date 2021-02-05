@@ -119,11 +119,7 @@ def handler(event, context):
             # I'm more concerned about my AWS bill as processing all 2M+ results
             # iteratively is going to run that lambda for *quite* awhile.
             if meta['page'] > 5:
-                msg = "I fear you've provided an invalid clean ID. Please \
-                double check and try again. If you have in fact provided more \
-                than 125 _valid_ ids, forgive me for cutting you short. Please \
-                consider our premium subscription plan which will allow you to \
-                query all 2,632,141 results."
+                msg = "I fear you've provided an invalid clean ID. Please double check and try again. If you have in fact provided more than 125 _valid_ ids, forgive me for cutting you short. Please consider our premium subscription plan which will allow you to query all 2632141 results."
                 return response(msg)
 
         times = {
